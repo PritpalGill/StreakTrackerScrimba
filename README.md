@@ -28,7 +28,7 @@ Click the extension icon to access the settings popup.
 
 ### Chrome
 
-1. Download or clone this repository
+1. Download or clone this repository (if downloading as ZIP, extract the folder first)
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in the top right)
 4. Click **Load unpacked**
@@ -37,7 +37,7 @@ Click the extension icon to access the settings popup.
 
 ### Firefox
 
-1. Download or clone this repository
+1. Download or clone this repository (if downloading as ZIP, extract the folder first)
 2. **Modify `manifest.json`** - Replace the background section:
 
    Change this:
