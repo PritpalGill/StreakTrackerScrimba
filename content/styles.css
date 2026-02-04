@@ -1,0 +1,422 @@
+/**
+ * Scrimba Streak Tracker - Widget Styles
+ */
+
+/* Widget Container */
+#scrimba-streak-widget {
+  position: relative;
+  padding: 12px;
+  margin: 8px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* Header */
+.streak-header {
+  margin-bottom: 0px;
+}
+
+.streak-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.streak-title {
+  font-size: 14px;
+  font-weight: 600;
+  /* color: rgba(255, 255, 255, 0.9); */
+  color: #afbccd;
+}
+
+/* Month Navigation */
+.streak-month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.month-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.month-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.month-nav-btn:disabled,
+.month-nav-btn.disabled {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+.month-label {
+  font-size: 13px;
+  font-weight: 500;
+  /* color: rgba(255, 255, 255, 0.9); */
+  color: #afbccd;
+  white-space: nowrap;
+}
+
+/* Weekday Labels */
+.streak-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.streak-weekdays span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+/* Calendar Grid */
+.streak-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+/* Legend */
+.streak-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.legend-label {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.legend-squares {
+  display: flex;
+  gap: 3px;
+}
+
+.legend-square {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.legend-square.level-0 {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.legend-square.level-1 {
+  background: oklch(72.4% 0.1405 161.4 / 0.3);
+}
+
+.legend-square.level-2 {
+  background: oklch(72.4% 0.1405 161.4 / 0.5);
+}
+
+.legend-square.level-3 {
+  background: oklch(72.4% 0.1405 161.4 / 0.7);
+}
+
+.legend-square.level-4 {
+  background: oklch(72.4% 0.1405 161.4 / 0.85);
+}
+
+.legend-square.level-5 {
+  background: oklch(72.4% 0.1405 161.4);
+}
+
+/* Fallback for browsers that don't support oklch */
+@supports not (background: oklch(72.4% 0.1405 161.4)) {
+  .legend-square.level-1 {
+    background: rgba(46, 213, 115, 0.3);
+  }
+
+  .legend-square.level-2 {
+    background: rgba(46, 213, 115, 0.5);
+  }
+
+  .legend-square.level-3 {
+    background: rgba(46, 213, 115, 0.7);
+  }
+
+  .legend-square.level-4 {
+    background: rgba(46, 213, 115, 0.85);
+  }
+
+  .legend-square.level-5 {
+    background: #2ed573;
+  }
+}
+
+/* Cell Styling */
+.streak-cell {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.streak-cell:hover:not(.empty):not(.future) {
+  transform: scale(1.1);
+}
+
+.streak-cell:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 1px;
+}
+
+.streak-cell:focus:not(.empty):not(.future) {
+  transform: scale(1.1);
+}
+
+.streak-cell.today {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+.streak-cell.empty {
+  visibility: hidden;
+}
+
+.streak-cell.future {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.day-number {
+  pointer-events: none;
+}
+
+/* Activity Levels */
+.streak-cell.level-0 {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.streak-cell.level-1 {
+  background: oklch(72.4% 0.1405 161.4 / 0.3);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.streak-cell.level-2 {
+  background: oklch(72.4% 0.1405 161.4 / 0.5);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.streak-cell.level-3 {
+  background: oklch(72.4% 0.1405 161.4 / 0.7);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.streak-cell.level-4 {
+  background: oklch(72.4% 0.1405 161.4 / 0.85);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.streak-cell.level-5 {
+  background: oklch(72.4% 0.1405 161.4);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Fallback for browsers that don't support oklch */
+@supports not (background: oklch(72.4% 0.1405 161.4)) {
+  .streak-cell.level-1 {
+    background: rgba(46, 213, 115, 0.3);
+  }
+
+  .streak-cell.level-2 {
+    background: rgba(46, 213, 115, 0.5);
+  }
+
+  .streak-cell.level-3 {
+    background: rgba(46, 213, 115, 0.7);
+  }
+
+  .streak-cell.level-4 {
+    background: rgba(46, 213, 115, 0.85);
+  }
+
+  .streak-cell.level-5 {
+    background: #2ed573;
+  }
+}
+
+/* Tooltip */
+.streak-tooltip {
+  position: absolute;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.streak-tooltip.visible {
+  opacity: 1;
+}
+
+.streak-tooltip .tooltip-date {
+  display: block;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+}
+
+.streak-tooltip .tooltip-count {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Stats Footer */
+.streak-stats {
+  display: flex;
+  gap: 8px;
+}
+
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  transition: box-shadow 0.15s ease;
+}
+
+.stat-box:hover {
+  box-shadow: 0 0 4px rgba(46, 213, 115, 0.5), inset 0 0 0 1px #2ed573;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stat-icon {
+  flex-shrink: 0;
+  align-self: baseline;
+  position: relative;
+  top: 2px;
+  transition: transform 0.15s ease;
+}
+
+.stat-box:hover .stat-icon {
+  transform: scale(1.2);
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  /* color: rgba(255, 255, 255, 0.9); */
+  color: #afbccd;
+  line-height: 1.2;
+}
+
+.stat-unit {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 1px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  /* margin-top: 2px; */
+}
+
+/* Error State */
+#scrimba-streak-widget.error-state .streak-error {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.streak-error p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  margin: 0 0 12px 0;
+}
+
+.retry-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.retry-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.retry-btn:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .streak-cell {
+    transition: none;
+  }
+
+  .streak-tooltip {
+    transition: none;
+  }
+
+  .month-nav-btn {
+    transition: none;
+  }
+
+  .retry-btn {
+    transition: none;
+  }
+
+  .stat-box {
+    transition: none;
+  }
+
+  .stat-icon {
+    transition: none;
+  }
+}

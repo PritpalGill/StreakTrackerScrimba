@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streak Tracker for Scrimba</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <h1 class="popup-title">Streak Tracker for Scrimba</h1>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-label" id="widget-visible-label">Widget Visibility</span>
+        <span class="setting-desc" id="widget-visible-desc">Show or hide the streak widget in Scrimba sidebar</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="widget-visible" aria-labelledby="widget-visible-label" aria-describedby="widget-visible-desc">
+        <span class="toggle-slider" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-label" id="weekday-only-label">Weekday-Only Streaks</span>
+        <span class="setting-desc" id="weekday-only-desc">Excludes weekends from streak calculations</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="weekday-only" aria-labelledby="weekday-only-label" aria-describedby="weekday-only-desc">
+        <span class="toggle-slider" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-label" id="max-lessons-label">Max Lessons for Full Color</span>
+        <span class="setting-desc" id="max-lessons-desc">Number of lessons to reach brightest green</span>
+      </div>
+      <input type="number"
+             class="number-input"
+             id="max-lessons"
+             min="5"
+             max="50"
+             step="1"
+             aria-labelledby="max-lessons-label"
+             aria-describedby="max-lessons-desc">
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
