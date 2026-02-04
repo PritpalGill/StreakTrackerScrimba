@@ -1,4 +1,4 @@
-# Streak Tracker for Scrimba
+# ![Icon](icons/icon-48.png) Streak Tracker for Scrimba
 
 A browser extension that adds a GitHub-style contribution graph to your Scrimba side navbar, helping you track your learning streaks and stay motivated.
 
